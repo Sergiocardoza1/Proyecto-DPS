@@ -11,8 +11,11 @@ Para poder hacer uso de está aplicación, es necesario contar un el IDE de desa
 
 
 Android Studio como IDE de desarrollo : https://developer.android.com/studio
+
 React Native como lenguaje de programación: https://reactnative.dev/ 
+
 Figma para diseños  UX/UI (Mock Ups): https://acortar.link/VVgU9G
+
 Trello para organizar las actividades: https://acortar.link/HKixuT
 
 
@@ -20,8 +23,11 @@ Trello para organizar las actividades: https://acortar.link/HKixuT
 **************************Guia de Instalación **************************
 
 Se debe de instalar: 
+
 Android Studio  
-React Native:
+
+React Native
+
 Github Desktop
 
 
@@ -41,12 +47,17 @@ Sergio Alexander Cardoza de Leon  - Programación, Diseño UX/UI , Logica del Ne
 **************************Licencia **************************
 
 Atribución (CC BY)
+
 Atribución-NoComercial (CC BY-NC)
+
 Atribución-CompartirIgual (CC BY-SA)
+
 Atribución-SinDerivadas (CC BY-ND)
 
 
 
 ************************** Enlaces de interés **************************
+
 [Tablero en Trello] ---->  https://acortar.link/HKixuT
+
 [Enlace a Mockups] -----> https://acortar.link/VVgU9G
