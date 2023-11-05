@@ -1,0 +1,546 @@
+// Logo
+Container(
+  width: 120,
+  height: 120,
+  clipBehavior: Clip.antiAlias,
+  decoration: BoxDecoration(
+    shape: BoxShape.circle,
+  ),
+  child: Image.asset(
+    'assets/images/Rose_Gold_Photography_Circle_Logo.png',
+    fit: BoxFit.cover,
+  ),
+)
+
+// Texbox 
+Expanded(
+  child: Padding(
+    padding: EdgeInsetsDirectional.fromSTEB(16, 8, 16, 8),
+    child: TextFormField(
+      controller: _model.ingreseNombreController,
+      focusNode: _model.ingreseNombreFocusNode,
+      obscureText: false,
+      decoration: InputDecoration(
+        labelText: 'Nombre Completo',
+        labelStyle: FlutterFlowTheme.of(context).bodyMedium.override(
+              fontFamily: 'Overpass',
+              color: FlutterFlowTheme.of(context).secondary,
+            ),
+        hintText: 'Ingrese el nombre completo',
+        hintStyle: FlutterFlowTheme.of(context).bodyMedium.override(
+              fontFamily: 'Overpass',
+              color: FlutterFlowTheme.of(context).secondary,
+            ),
+        enabledBorder: OutlineInputBorder(
+          borderSide: BorderSide(
+            color: Color(0xFFDBE2E7),
+            width: 2,
+          ),
+          borderRadius: BorderRadius.circular(8),
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderSide: BorderSide(
+            color: Color(0x00000000),
+            width: 2,
+          ),
+          borderRadius: BorderRadius.circular(8),
+        ),
+        errorBorder: OutlineInputBorder(
+          borderSide: BorderSide(
+            color: Color(0x00000000),
+            width: 2,
+          ),
+          borderRadius: BorderRadius.circular(8),
+        ),
+        focusedErrorBorder: OutlineInputBorder(
+          borderSide: BorderSide(
+            color: Color(0x00000000),
+            width: 2,
+          ),
+          borderRadius: BorderRadius.circular(8),
+        ),
+      ),
+      style: FlutterFlowTheme.of(context).bodyMedium.override(
+            fontFamily: 'Overpass',
+            color: FlutterFlowTheme.of(context).primary,
+          ),
+      keyboardType: TextInputType.emailAddress,
+      validator: _model.ingreseNombreControllerValidator.asValidator(context),
+    ),
+  ),
+)
+
+ 
+Padding(
+  padding: EdgeInsetsDirectional.fromSTEB(0, 4, 0, 0),
+  child: Row(
+    mainAxisSize: MainAxisSize.max,
+    children: [
+      Expanded(
+        child: Padding(
+          padding: EdgeInsetsDirectional.fromSTEB(16, 8, 16, 8),
+          child: TextFormField(
+            controller: _model.correoController,
+            focusNode: _model.correoFocusNode,
+            obscureText: false,
+            decoration: InputDecoration(
+              labelText: 'Correo Electronico',
+              labelStyle: FlutterFlowTheme.of(context).bodyMedium.override(
+                    fontFamily: 'Overpass',
+                    color: FlutterFlowTheme.of(context).secondary,
+                  ),
+              hintText: 'Ingrese correo electronico',
+              hintStyle: FlutterFlowTheme.of(context).bodyMedium.override(
+                    fontFamily: 'Overpass',
+                    color: FlutterFlowTheme.of(context).secondary,
+                  ),
+              enabledBorder: OutlineInputBorder(
+                borderSide: BorderSide(
+                  color: Color(0xFFDBE2E7),
+                  width: 2,
+                ),
+                borderRadius: BorderRadius.circular(8),
+              ),
+              focusedBorder: OutlineInputBorder(
+                borderSide: BorderSide(
+                  color: Color(0x00000000),
+                  width: 2,
+                ),
+                borderRadius: BorderRadius.circular(8),
+              ),
+              errorBorder: OutlineInputBorder(
+                borderSide: BorderSide(
+                  color: Color(0x00000000),
+                  width: 2,
+                ),
+                borderRadius: BorderRadius.circular(8),
+              ),
+              focusedErrorBorder: OutlineInputBorder(
+                borderSide: BorderSide(
+                  color: Color(0x00000000),
+                  width: 2,
+                ),
+                borderRadius: BorderRadius.circular(8),
+              ),
+            ),
+            style: FlutterFlowTheme.of(context).bodyMedium.override(
+                  fontFamily: 'Overpass',
+                  color: FlutterFlowTheme.of(context).primary,
+                ),
+            keyboardType: TextInputType.emailAddress,
+            validator: _model.correoControllerValidator.asValidator(context),
+          ),
+        ),
+      ),
+    ],
+  ),
+)
+
+
+ 
+Padding(
+  padding: EdgeInsetsDirectional.fromSTEB(0, 4, 0, 0),
+  child: Row(
+    mainAxisSize: MainAxisSize.max,
+    children: [
+      Expanded(
+        child: Padding(
+          padding: EdgeInsetsDirectional.fromSTEB(16, 8, 16, 8),
+          child: TextFormField(
+            controller: _model.edadController,
+            focusNode: _model.edadFocusNode,
+            obscureText: false,
+            decoration: InputDecoration(
+              labelText: 'Edad',
+              labelStyle: FlutterFlowTheme.of(context).bodyMedium.override(
+                    fontFamily: 'Overpass',
+                    color: FlutterFlowTheme.of(context).secondary,
+                  ),
+              hintText: 'Ingrese Edad',
+              hintStyle: FlutterFlowTheme.of(context).bodyMedium.override(
+                    fontFamily: 'Overpass',
+                    color: FlutterFlowTheme.of(context).secondary,
+                  ),
+              enabledBorder: OutlineInputBorder(
+                borderSide: BorderSide(
+                  color: Color(0xFFDBE2E7),
+                  width: 2,
+                ),
+                borderRadius: BorderRadius.circular(8),
+              ),
+              focusedBorder: OutlineInputBorder(
+                borderSide: BorderSide(
+                  color: Color(0x00000000),
+                  width: 2,
+                ),
+                borderRadius: BorderRadius.circular(8),
+              ),
+              errorBorder: OutlineInputBorder(
+                borderSide: BorderSide(
+                  color: Color(0x00000000),
+                  width: 2,
+                ),
+                borderRadius: BorderRadius.circular(8),
+              ),
+              focusedErrorBorder: OutlineInputBorder(
+                borderSide: BorderSide(
+                  color: Color(0x00000000),
+                  width: 2,
+                ),
+                borderRadius: BorderRadius.circular(8),
+              ),
+            ),
+            style: FlutterFlowTheme.of(context).bodyMedium.override(
+                  fontFamily: 'Overpass',
+                  color: FlutterFlowTheme.of(context).primary,
+                ),
+            keyboardType: TextInputType.emailAddress,
+            validator: _model.edadControllerValidator.asValidator(context),
+          ),
+        ),
+      ),
+    ],
+  ),
+)
+
+
+Padding(
+  padding: EdgeInsetsDirectional.fromSTEB(0, 4, 0, 0),
+  child: Row(
+    mainAxisSize: MainAxisSize.max,
+    children: [
+      Expanded(
+        child: Padding(
+          padding: EdgeInsetsDirectional.fromSTEB(16, 8, 16, 8),
+          child: TextFormField(
+            controller: _model.duiController,
+            focusNode: _model.duiFocusNode,
+            obscureText: false,
+            decoration: InputDecoration(
+              labelText: 'DUI',
+              labelStyle: FlutterFlowTheme.of(context).bodyMedium.override(
+                    fontFamily: 'Overpass',
+                    color: FlutterFlowTheme.of(context).secondary,
+                  ),
+              hintText: 'Ingrese DUI',
+              hintStyle: FlutterFlowTheme.of(context).bodyMedium.override(
+                    fontFamily: 'Overpass',
+                    color: FlutterFlowTheme.of(context).secondary,
+                  ),
+              enabledBorder: OutlineInputBorder(
+                borderSide: BorderSide(
+                  color: Color(0xFFDBE2E7),
+                  width: 2,
+                ),
+                borderRadius: BorderRadius.circular(8),
+              ),
+              focusedBorder: OutlineInputBorder(
+                borderSide: BorderSide(
+                  color: Color(0x00000000),
+                  width: 2,
+                ),
+                borderRadius: BorderRadius.circular(8),
+              ),
+              errorBorder: OutlineInputBorder(
+                borderSide: BorderSide(
+                  color: Color(0x00000000),
+                  width: 2,
+                ),
+                borderRadius: BorderRadius.circular(8),
+              ),
+              focusedErrorBorder: OutlineInputBorder(
+                borderSide: BorderSide(
+                  color: Color(0x00000000),
+                  width: 2,
+                ),
+                borderRadius: BorderRadius.circular(8),
+              ),
+            ),
+            style: FlutterFlowTheme.of(context).bodyMedium.override(
+                  fontFamily: 'Overpass',
+                  color: FlutterFlowTheme.of(context).primary,
+                ),
+            keyboardType: TextInputType.emailAddress,
+            validator: _model.duiControllerValidator.asValidator(context),
+          ),
+        ),
+      ),
+    ],
+  ),
+)
+
+
+
+Padding(
+  padding: EdgeInsetsDirectional.fromSTEB(0, 4, 0, 0),
+  child: Row(
+    mainAxisSize: MainAxisSize.max,
+    children: [
+      Expanded(
+        child: Padding(
+          padding: EdgeInsetsDirectional.fromSTEB(16, 8, 16, 8),
+          child: TextFormField(
+            controller: _model.direccionController,
+            focusNode: _model.direccionFocusNode,
+            obscureText: false,
+            decoration: InputDecoration(
+              labelText: 'Direccion',
+              labelStyle: FlutterFlowTheme.of(context).bodyMedium.override(
+                    fontFamily: 'Overpass',
+                    color: FlutterFlowTheme.of(context).secondary,
+                  ),
+              hintText: 'Ingrese direccion',
+              hintStyle: FlutterFlowTheme.of(context).bodyMedium.override(
+                    fontFamily: 'Overpass',
+                    color: FlutterFlowTheme.of(context).secondary,
+                  ),
+              enabledBorder: OutlineInputBorder(
+                borderSide: BorderSide(
+                  color: Color(0xFFDBE2E7),
+                  width: 2,
+                ),
+                borderRadius: BorderRadius.circular(8),
+              ),
+              focusedBorder: OutlineInputBorder(
+                borderSide: BorderSide(
+                  color: Color(0x00000000),
+                  width: 2,
+                ),
+                borderRadius: BorderRadius.circular(8),
+              ),
+              errorBorder: OutlineInputBorder(
+                borderSide: BorderSide(
+                  color: Color(0x00000000),
+                  width: 2,
+                ),
+                borderRadius: BorderRadius.circular(8),
+              ),
+              focusedErrorBorder: OutlineInputBorder(
+                borderSide: BorderSide(
+                  color: Color(0x00000000),
+                  width: 2,
+                ),
+                borderRadius: BorderRadius.circular(8),
+              ),
+            ),
+            style: FlutterFlowTheme.of(context).bodyMedium.override(
+                  fontFamily: 'Overpass',
+                  color: FlutterFlowTheme.of(context).primary,
+                ),
+            keyboardType: TextInputType.emailAddress,
+            validator:
+                _model.direccionControllerValidator.asValidator(context),
+          ),
+        ),
+      ),
+    ],
+  ),
+)
+
+ 
+Padding(
+  padding: EdgeInsetsDirectional.fromSTEB(0, 4, 0, 0),
+  child: Row(
+    mainAxisSize: MainAxisSize.max,
+    children: [
+      Expanded(
+        child: Padding(
+          padding: EdgeInsetsDirectional.fromSTEB(16, 8, 16, 8),
+          child: TextFormField(
+            controller: _model.generoController,
+            focusNode: _model.generoFocusNode,
+            obscureText: false,
+            decoration: InputDecoration(
+              labelText: 'Genero',
+              labelStyle: FlutterFlowTheme.of(context).bodyMedium.override(
+                    fontFamily: 'Overpass',
+                    color: FlutterFlowTheme.of(context).secondary,
+                  ),
+              hintText: 'Ingrese genero',
+              hintStyle: FlutterFlowTheme.of(context).bodyMedium.override(
+                    fontFamily: 'Overpass',
+                    color: FlutterFlowTheme.of(context).secondary,
+                  ),
+              enabledBorder: OutlineInputBorder(
+                borderSide: BorderSide(
+                  color: Color(0xFFDBE2E7),
+                  width: 2,
+                ),
+                borderRadius: BorderRadius.circular(8),
+              ),
+              focusedBorder: OutlineInputBorder(
+                borderSide: BorderSide(
+                  color: Color(0x00000000),
+                  width: 2,
+                ),
+                borderRadius: BorderRadius.circular(8),
+              ),
+              errorBorder: OutlineInputBorder(
+                borderSide: BorderSide(
+                  color: Color(0x00000000),
+                  width: 2,
+                ),
+                borderRadius: BorderRadius.circular(8),
+              ),
+              focusedErrorBorder: OutlineInputBorder(
+                borderSide: BorderSide(
+                  color: Color(0x00000000),
+                  width: 2,
+                ),
+                borderRadius: BorderRadius.circular(8),
+              ),
+            ),
+            style: FlutterFlowTheme.of(context).bodyMedium.override(
+                  fontFamily: 'Overpass',
+                  color: FlutterFlowTheme.of(context).primary,
+                ),
+            keyboardType: TextInputType.emailAddress,
+            validator: _model.generoControllerValidator.asValidator(context),
+          ),
+        ),
+      ),
+    ],
+  ),
+)
+
+ 
+Padding(
+  padding: EdgeInsetsDirectional.fromSTEB(0, 4, 0, 0),
+  child: Row(
+    mainAxisSize: MainAxisSize.max,
+    children: [
+      Expanded(
+        child: Padding(
+          padding: EdgeInsetsDirectional.fromSTEB(16, 8, 16, 8),
+          child: TextFormField(
+            controller: _model.generoController,
+            focusNode: _model.generoFocusNode,
+            obscureText: false,
+            decoration: InputDecoration(
+              labelText: 'Genero',
+              labelStyle: FlutterFlowTheme.of(context).bodyMedium.override(
+                    fontFamily: 'Overpass',
+                    color: FlutterFlowTheme.of(context).secondary,
+                  ),
+              hintText: 'Ingrese genero',
+              hintStyle: FlutterFlowTheme.of(context).bodyMedium.override(
+                    fontFamily: 'Overpass',
+                    color: FlutterFlowTheme.of(context).secondary,
+                  ),
+              enabledBorder: OutlineInputBorder(
+                borderSide: BorderSide(
+                  color: Color(0xFFDBE2E7),
+                  width: 2,
+                ),
+                borderRadius: BorderRadius.circular(8),
+              ),
+              focusedBorder: OutlineInputBorder(
+                borderSide: BorderSide(
+                  color: Color(0x00000000),
+                  width: 2,
+                ),
+                borderRadius: BorderRadius.circular(8),
+              ),
+              errorBorder: OutlineInputBorder(
+                borderSide: BorderSide(
+                  color: Color(0x00000000),
+                  width: 2,
+                ),
+                borderRadius: BorderRadius.circular(8),
+              ),
+              focusedErrorBorder: OutlineInputBorder(
+                borderSide: BorderSide(
+                  color: Color(0x00000000),
+                  width: 2,
+                ),
+                borderRadius: BorderRadius.circular(8),
+              ),
+            ),
+            style: FlutterFlowTheme.of(context).bodyMedium.override(
+                  fontFamily: 'Overpass',
+                  color: FlutterFlowTheme.of(context).primary,
+                ),
+            keyboardType: TextInputType.emailAddress,
+            validator: _model.generoControllerValidator.asValidator(context),
+          ),
+        ),
+      ),
+    ],
+  ),
+)
+
+ 
+Row(
+  mainAxisSize: MainAxisSize.max,
+  children: [
+    Expanded(
+      child: Padding(
+        padding: EdgeInsetsDirectional.fromSTEB(16, 4, 16, 0),
+        child: TextFormField(
+          controller: _model.contra1Controller,
+          focusNode: _model.contra1FocusNode,
+          obscureText: !_model.contra1Visibility,
+          decoration: InputDecoration(
+            labelText: 'Contraseña',
+            labelStyle: FlutterFlowTheme.of(context).bodyMedium.override(
+                  fontFamily: 'Overpass',
+                  color: FlutterFlowTheme.of(context).secondary,
+                ),
+            hintText: 'Ingrese Contraseña',
+            hintStyle: FlutterFlowTheme.of(context).bodyMedium.override(
+                  fontFamily: 'Overpass',
+                  color: FlutterFlowTheme.of(context).secondary,
+                ),
+            enabledBorder: OutlineInputBorder(
+              borderSide: BorderSide(
+                color: Color(0xFFDBE2E7),
+                width: 2,
+              ),
+              borderRadius: BorderRadius.circular(8),
+            ),
+            focusedBorder: OutlineInputBorder(
+              borderSide: BorderSide(
+                color: Color(0x00000000),
+                width: 2,
+              ),
+              borderRadius: BorderRadius.circular(8),
+            ),
+            errorBorder: OutlineInputBorder(
+              borderSide: BorderSide(
+                color: Color(0x00000000),
+                width: 2,
+              ),
+              borderRadius: BorderRadius.circular(8),
+            ),
+            focusedErrorBorder: OutlineInputBorder(
+              borderSide: BorderSide(
+                color: Color(0x00000000),
+                width: 2,
+              ),
+              borderRadius: BorderRadius.circular(8),
+            ),
+            suffixIcon: InkWell(
+              onTap: () => setState(
+                () => _model.contra1Visibility = !_model.contra1Visibility,
+              ),
+              focusNode: FocusNode(skipTraversal: true),
+              child: Icon(
+                _model.contra1Visibility
+                    ? Icons.visibility_outlined
+                    : Icons.visibility_off_outlined,
+                color: FlutterFlowTheme.of(context).secondary,
+                size: 20,
+              ),
+            ),
+          ),
+          style: FlutterFlowTheme.of(context).bodyMedium.override(
+                fontFamily: 'Overpass',
+                color: Color(0xFF14181B),
+              ),
+          validator: _model.contra1ControllerValidator.asValidator(context),
+        ),
+      ),
+    ),
+  ],
+)
+
