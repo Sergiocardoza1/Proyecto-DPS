@@ -1,0 +1,382 @@
+// Logo del Asilo 
+Align(
+  alignment: AlignmentDirectional(0.00, 0.00),
+  child: Padding(
+    padding: EdgeInsetsDirectional.fromSTEB(130, 0, 0, 0),
+    child: Container(
+      width: 150,
+      height: 150,
+      clipBehavior: Clip.antiAlias,
+      decoration: BoxDecoration(
+        shape: BoxShape.circle,
+      ),
+      child: Image.asset(
+        'assets/images/Rose_Gold_Photography_Circle_Logo.png',
+        fit: BoxFit.cover,
+      ),
+    ),
+  ),
+)
+
+// Text Box de Correo , Contraseña
+
+ 
+Padding(
+  padding: EdgeInsetsDirectional.fromSTEB(50, 24, 0, 0),
+  child: InkWell(
+    splashColor: Colors.transparent,
+    focusColor: Colors.transparent,
+    hoverColor: Colors.transparent,
+    highlightColor: Colors.transparent,
+    onTap: () async {
+      setState(() {
+        _model.create = false;
+      });
+    },
+    child: Text(
+      'Inicio de Sesión ',
+      style: FlutterFlowTheme.of(context).displaySmall.override(
+            fontFamily: 'Plus Jakarta Sans',
+            color: _model.create == false
+                ? Color(0xFF101213)
+                : Color(0xFF57636C),
+            fontSize: 36,
+            fontWeight: FontWeight.w600,
+          ),
+    ),
+  ),
+)
+
+ 
+Padding(
+  padding: EdgeInsetsDirectional.fromSTEB(100, 12, 0, 24),
+  child: Text(
+    'Ingresa tus credenciales',
+    style: FlutterFlowTheme.of(context).labelMedium.override(
+          fontFamily: 'Plus Jakarta Sans',
+          color: Color(0xFF57636C),
+          fontSize: 14,
+          fontWeight: FontWeight.w500,
+        ),
+  ),
+)
+
+ 
+Padding(
+  padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 16),
+  child: Container(
+    width: double.infinity,
+    child: TextFormField(
+      controller: _model.emailAddressController,
+      focusNode: _model.emailAddressFocusNode,
+      autofocus: true,
+      autofillHints: [AutofillHints.email],
+      obscureText: false,
+      decoration: InputDecoration(
+        labelText: 'Correo',
+        labelStyle: FlutterFlowTheme.of(context).labelMedium.override(
+              fontFamily: 'Plus Jakarta Sans',
+              color: Color(0xFF57636C),
+              fontSize: 14,
+              fontWeight: FontWeight.w500,
+            ),
+        enabledBorder: OutlineInputBorder(
+          borderSide: BorderSide(
+            color: Color(0xFFE0E3E7),
+            width: 2,
+          ),
+          borderRadius: BorderRadius.circular(40),
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderSide: BorderSide(
+            color: Color(0xFF4B39EF),
+            width: 2,
+          ),
+          borderRadius: BorderRadius.circular(40),
+        ),
+        errorBorder: OutlineInputBorder(
+          borderSide: BorderSide(
+            color: Color(0xFFFF5963),
+            width: 2,
+          ),
+          borderRadius: BorderRadius.circular(40),
+        ),
+        focusedErrorBorder: OutlineInputBorder(
+          borderSide: BorderSide(
+            color: Color(0xFFFF5963),
+            width: 2,
+          ),
+          borderRadius: BorderRadius.circular(40),
+        ),
+        filled: true,
+        fillColor: Colors.white,
+        contentPadding: EdgeInsetsDirectional.fromSTEB(24, 24, 24, 24),
+      ),
+      style: FlutterFlowTheme.of(context).bodyMedium.override(
+            fontFamily: 'Plus Jakarta Sans',
+            color: Color(0xFF101213),
+            fontSize: 14,
+            fontWeight: FontWeight.w500,
+          ),
+      keyboardType: TextInputType.emailAddress,
+      validator: _model.emailAddressControllerValidator.asValidator(context),
+    ),
+  ),
+)
+
+ 
+Padding(
+  padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 16),
+  child: Container(
+    width: double.infinity,
+    child: TextFormField(
+      controller: _model.passwordController,
+      focusNode: _model.passwordFocusNode,
+      autofillHints: [AutofillHints.password],
+      obscureText: !_model.passwordVisibility,
+      decoration: InputDecoration(
+        labelText: 'Contraseña',
+        labelStyle: FlutterFlowTheme.of(context).labelMedium.override(
+              fontFamily: 'Plus Jakarta Sans',
+              color: Color(0xFF57636C),
+              fontSize: 14,
+              fontWeight: FontWeight.w500,
+            ),
+        enabledBorder: OutlineInputBorder(
+          borderSide: BorderSide(
+            color: Color(0xFFE0E3E7),
+            width: 2,
+          ),
+          borderRadius: BorderRadius.circular(40),
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderSide: BorderSide(
+            color: Color(0xFF4B39EF),
+            width: 2,
+          ),
+          borderRadius: BorderRadius.circular(40),
+        ),
+        errorBorder: OutlineInputBorder(
+          borderSide: BorderSide(
+            color: Color(0xFFFF5963),
+            width: 2,
+          ),
+          borderRadius: BorderRadius.circular(40),
+        ),
+        focusedErrorBorder: OutlineInputBorder(
+          borderSide: BorderSide(
+            color: Color(0xFFFF5963),
+            width: 2,
+          ),
+          borderRadius: BorderRadius.circular(40),
+        ),
+        filled: true,
+        fillColor: Colors.white,
+        contentPadding: EdgeInsetsDirectional.fromSTEB(24, 24, 24, 24),
+        suffixIcon: InkWell(
+          onTap: () => setState(
+            () => _model.passwordVisibility = !_model.passwordVisibility,
+          ),
+          focusNode: FocusNode(skipTraversal: true),
+          child: Icon(
+            _model.passwordVisibility
+                ? Icons.visibility_outlined
+                : Icons.visibility_off_outlined,
+            color: Color(0xFF57636C),
+            size: 24,
+          ),
+        ),
+      ),
+      style: FlutterFlowTheme.of(context).bodyMedium.override(
+            fontFamily: 'Plus Jakarta Sans',
+            color: Color(0xFF101213),
+            fontSize: 14,
+            fontWeight: FontWeight.w500,
+          ),
+      validator: _model.passwordControllerValidator.asValidator(context),
+    ),
+  ),
+)
+
+
+
+
+// Boton de Agregar
+
+ 
+Align(
+  alignment: AlignmentDirectional(0.00, 0.00),
+  child: Padding(
+    padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 16),
+    child: FFButtonWidget(
+      onPressed: () async {
+        GoRouter.of(context).prepareAuthEvent();
+        final user = await authManager.signInWithEmail(
+          context,
+          _model.emailAddressController.text,
+          _model.passwordController.text,
+        );
+        if (user == null) {
+          return;
+        }
+        context.goNamedAuth('null', context.mounted);
+      },
+      text: 'Ingresar',
+      options: FFButtonOptions(
+        width: 230,
+        height: 52,
+        padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+        iconPadding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+        color: Color(0xFF4B39EF),
+        textStyle: FlutterFlowTheme.of(context).titleSmall.override(
+              fontFamily: 'Plus Jakarta Sans',
+              color: Colors.white,
+              fontSize: 16,
+              fontWeight: FontWeight.w500,
+            ),
+        elevation: 3,
+        borderSide: BorderSide(
+          color: Colors.transparent,
+          width: 1,
+        ),
+        borderRadius: BorderRadius.circular(40),
+      ),
+    ),
+  ),
+)
+
+
+ 
+Align(
+  alignment: AlignmentDirectional(0.00, 0.00),
+  child: Padding(
+    padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 16),
+    child: FFButtonWidget(
+      onPressed: () {
+        print('Button pressed ...');
+      },
+      text: '¿Has olvidado tu contraseña?',
+      options: FFButtonOptions(
+        width: 230,
+        height: 44,
+        padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+        iconPadding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+        color: Colors.white,
+        textStyle: FlutterFlowTheme.of(context).bodyMedium.override(
+              fontFamily: 'Plus Jakarta Sans',
+              color: Color(0xFF101213),
+              fontSize: 14,
+              fontWeight: FontWeight.w500,
+            ),
+        elevation: 0,
+        borderSide: BorderSide(
+          color: Colors.white,
+          width: 2,
+        ),
+        borderRadius: BorderRadius.circular(12),
+      ),
+    ),
+  ),
+)
+
+ 
+Align(
+  alignment: AlignmentDirectional(0.00, 0.00),
+  child: Padding(
+    padding: EdgeInsetsDirectional.fromSTEB(16, 0, 16, 24),
+    child: Text(
+      'o regístrate con',
+      textAlign: TextAlign.center,
+      style: FlutterFlowTheme.of(context).labelMedium.override(
+            fontFamily: 'Plus Jakarta Sans',
+            color: Color(0xFF57636C),
+            fontSize: 14,
+            fontWeight: FontWeight.w500,
+          ),
+    ),
+  ),
+)
+
+// SPLASH antes del login usuario/contraseña, y además debe dar la opción de hacerlo por google y icloud
+
+ 
+Padding(
+  padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 16),
+  child: FFButtonWidget(
+    onPressed: () async {
+      GoRouter.of(context).prepareAuthEvent();
+      final user = await authManager.signInWithGoogle(context);
+      if (user == null) {
+        return;
+      }
+      context.goNamedAuth('null', context.mounted);
+    },
+    text: 'Continua con Google',
+    icon: FaIcon(
+      FontAwesomeIcons.google,
+      size: 20,
+    ),
+    options: FFButtonOptions(
+      width: 230,
+      height: 44,
+      padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+      iconPadding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+      color: Colors.white,
+      textStyle: FlutterFlowTheme.of(context).bodyMedium.override(
+            fontFamily: 'Plus Jakarta Sans',
+            color: Color(0xFF101213),
+            fontSize: 14,
+            fontWeight: FontWeight.bold,
+          ),
+      elevation: 0,
+      borderSide: BorderSide(
+        color: Color(0xFFE0E3E7),
+        width: 2,
+      ),
+      borderRadius: BorderRadius.circular(40),
+      hoverColor: Color(0xFFF1F4F8),
+    ),
+  ),
+)
+
+ 
+isAndroid
+    ? Container()
+    : Padding(
+        padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 16),
+        child: FFButtonWidget(
+          onPressed: () async {
+            GoRouter.of(context).prepareAuthEvent();
+            final user = await authManager.signInWithApple(context);
+            if (user == null) {
+              return;
+            }
+            context.goNamedAuth('null', context.mounted);
+          },
+          text: 'Continua con Apple',
+          icon: FaIcon(
+            FontAwesomeIcons.apple,
+            size: 20,
+          ),
+          options: FFButtonOptions(
+            width: 230,
+            height: 44,
+            padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+            iconPadding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+            color: Colors.white,
+            textStyle: FlutterFlowTheme.of(context).bodyMedium.override(
+                  fontFamily: 'Plus Jakarta Sans',
+                  color: Color(0xFF101213),
+                  fontSize: 14,
+                  fontWeight: FontWeight.bold,
+                ),
+            elevation: 0,
+            borderSide: BorderSide(
+              color: Color(0xFFE0E3E7),
+              width: 2,
+            ),
+            borderRadius: BorderRadius.circular(40),
+            hoverColor: Color(0xFFF1F4F8),
+          ),
+        ),
+      )
