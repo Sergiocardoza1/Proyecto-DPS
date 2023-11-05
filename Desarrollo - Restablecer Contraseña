@@ -1,0 +1,230 @@
+class CambioContraseaWidget extends StatefulWidget {
+  const CambioContraseaWidget({Key? key}) : super(key: key);
+
+  @override
+  _CambioContraseaWidgetState createState() => _CambioContraseaWidgetState();
+}
+
+class _CambioContraseaWidgetState extends State<CambioContraseaWidget> {
+  late CambioContraseaModel _model;
+
+  final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  @override
+  void initState() {
+    super.initState();
+    _model = createModel(context, () => CambioContraseaModel());
+
+    _model.confirmarcontraseaController ??= TextEditingController();
+    _model.confirmarcontraseaFocusNode ??= FocusNode();
+  }
+
+  @override
+  void dispose() {
+    _model.dispose();
+
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    if (isiOS) {
+      SystemChrome.setSystemUIOverlayStyle(
+        SystemUiOverlayStyle(
+          statusBarBrightness: Theme.of(context).brightness,
+          systemStatusBarContrastEnforced: true,
+        ),
+      );
+    }
+
+    return StreamBuilder<UsersRecord>(
+      stream: UsersRecord.getDocument(currentUserReference!),
+      builder: (context, snapshot) {
+        // Customize what your widget looks like when it's loading.
+        if (!snapshot.hasData) {
+          return Scaffold(
+            backgroundColor: Colors.white,
+            body: Center(
+              child: SizedBox(
+                width: 50,
+                height: 50,
+                child: SpinKitFadingCircle(
+                  color: FlutterFlowTheme.of(context).primary,
+                  size: 50,
+                ),
+              ),
+            ),
+          );
+        }
+        final cambioContraseaUsersRecord = snapshot.data!;
+        return Scaffold(
+          key: scaffoldKey,
+          backgroundColor: Colors.white,
+          appBar: AppBar(
+            backgroundColor: Colors.white,
+            automaticallyImplyLeading: false,
+            leading: InkWell(
+              splashColor: Colors.transparent,
+              focusColor: Colors.transparent,
+              hoverColor: Colors.transparent,
+              highlightColor: Colors.transparent,
+              onTap: () async {
+                context.pop();
+              },
+              child: Icon(
+                Icons.arrow_back_rounded,
+                color: Colors.black,
+                size: 24,
+              ),
+            ),
+            title: Text(
+              'Cambio de Contraseña',
+              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                    fontFamily: 'Lexend Deca',
+                    color: Color(0xFF14181B),
+                    fontSize: 14,
+                    fontWeight: FontWeight.w500,
+                  ),
+            ),
+            actions: [],
+            centerTitle: true,
+            elevation: 0,
+          ),
+          body: SafeArea(
+            top: true,
+            child: Column(
+              mainAxisSize: MainAxisSize.max,
+              children: [
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(20, 12, 20, 12),
+                  child: TextFormField(
+                    controller: _model.confirmarcontraseaController,
+                    focusNode: _model.confirmarcontraseaFocusNode,
+                    obscureText: false,
+                    decoration: InputDecoration(
+                      labelText: 'Correo',
+                      labelStyle:
+                          FlutterFlowTheme.of(context).bodyMedium.override(
+                                fontFamily: 'Lexend Deca',
+                                color: Color(0xFF95A1AC),
+                                fontSize: 14,
+                                fontWeight: FontWeight.normal,
+                              ),
+                      hintText: 'Ingresar Correo',
+                      hintStyle:
+                          FlutterFlowTheme.of(context).bodyMedium.override(
+                                fontFamily: 'Lexend Deca',
+                                color: Color(0xFF95A1AC),
+                                fontSize: 14,
+                                fontWeight: FontWeight.normal,
+                              ),
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: Color(0xFFDBE2E7),
+                          width: 2,
+                        ),
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: Color(0x00000000),
+                          width: 2,
+                        ),
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                      errorBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: Color(0x00000000),
+                          width: 2,
+                        ),
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                      focusedErrorBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: Color(0x00000000),
+                          width: 2,
+                        ),
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                      filled: true,
+                      fillColor: Colors.white,
+                      contentPadding:
+                          EdgeInsetsDirectional.fromSTEB(20, 24, 0, 24),
+                    ),
+                    style: FlutterFlowTheme.of(context).bodyMedium.override(
+                          fontFamily: 'Lexend Deca',
+                          color: Color(0xFF14181B),
+                          fontSize: 14,
+                          fontWeight: FontWeight.normal,
+                        ),
+                    validator: _model.confirmarcontraseaControllerValidator
+                        .asValidator(context),
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(20, 0, 20, 0),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.max,
+                    children: [
+                      Expanded(
+                        child: Text(
+                          'Para proteger tu cuenta, se requiere verificar que eres tú quien está intentando iniciar sesión.\n\nConfirma con el enlace que se  enviara a tu correo. ',
+                          style: FlutterFlowTheme.of(context).bodyMedium,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Align(
+                  alignment: AlignmentDirectional(0.00, 0.05),
+                  child: Padding(
+                    padding: EdgeInsetsDirectional.fromSTEB(0, 24, 0, 0),
+                    child: FFButtonWidget(
+                      onPressed: () async {
+                        if (_model.confirmarcontraseaController.text.isEmpty) {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(
+                              content: Text(
+                                'Email required!',
+                              ),
+                            ),
+                          );
+                          return;
+                        }
+                        await authManager.resetPassword(
+                          email: _model.confirmarcontraseaController.text,
+                          context: context,
+                        );
+                      },
+                      text: 'Enviar enlace de reinicio\n\n',
+                      options: FFButtonOptions(
+                        width: 340,
+                        height: 60,
+                        padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                        iconPadding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                        color: Color(0xFF005F96),
+                        textStyle:
+                            FlutterFlowTheme.of(context).titleSmall.override(
+                                  fontFamily: 'Lexend Deca',
+                                  color: Colors.white,
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.normal,
+                                ),
+                        elevation: 2,
+                        borderSide: BorderSide(
+                          color: Colors.transparent,
+                          width: 1,
+                        ),
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        );
+      },
+    );
+  }
+}
